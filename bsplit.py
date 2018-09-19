@@ -12,12 +12,12 @@ def getNextBytes(f):
     return None
   matchBuffer = bytearray(next)
   while (matchBuffer[-1] == pattern[len(matchBuffer) - 1]) :
+    if (len(matchBuffer) == len(pattern)):
+      return b''
     next = f.read(1)
     if next == b'':
       return matchBuffer
     matchBuffer.append(next[0])
-    if (len(matchBuffer) == len(pattern)):
-      return b''
   return matchBuffer
 
 
