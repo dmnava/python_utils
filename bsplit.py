@@ -10,7 +10,6 @@ group.add_argument('-b', '--binary', help = 'The delimiter in hexadecimal form')
 parser.add_argument('file', help='The file to be splitted')
 
 args = parser.parse_args()
-inputFile = sys.argv[1]
 pattern = bytes(args.text, 'utf-8') if args.binary == None else bytes.fromhex(args.binary)
 
 def getNextBytes(f):
